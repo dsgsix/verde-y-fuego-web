@@ -1,4 +1,4 @@
-# Proyecto Restaurante Verrde y Fuego
+# Proyecto Restaurante Verde y Fuego
 
 Sitio estático de cocina manabita. Abre `index.html` o inicia un servidor local con `npx --yes serve .`. El catálogo, el carrito y el comprobante funcionan en el navegador.
 
