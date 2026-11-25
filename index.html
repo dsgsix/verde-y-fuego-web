@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es-EC">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bolones, tigrillos, empanadas de verde y corviches de Verde & Fuego. Arma tu pedido de comida típica manabita.">
+  <meta name="theme-color" content="#f8f6ee">
+  <title>Verde &amp; Fuego | Sabor manabita</title>
+  <link rel="icon" type="image/png" href="./assets/logo-verde-fuego.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,600;0,650;0,700;1,650&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body id="inicio">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark" aria-hidden="true"><img src="./assets/logo-verde-fuego.png" alt="" width="800" height="800"></span>
+        <span class="brand-copy"><strong>Verde <span>&amp;</span> Fuego</strong><small>Sabor manabita</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#menu">Menú</a>
+        <a href="#proximamente">Próximamente</a>
+      </nav>
+      <button class="cart-button" id="open-cart" type="button" aria-haspopup="dialog" aria-controls="cart-drawer">
+        <span class="bag-icon" aria-hidden="true"></span><span>Mi pedido</span><span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media">
+        <img src="./assets/platos/hero-bolon.webp" alt="Bolón de verde abierto con queso y chicharrón en un plato oscuro" width="1536" height="1024" fetchpriority="high" data-parallax>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow hero-kicker" data-hero><span></span> Desde Manabí, Ecuador</p>
+          <h1 id="hero-title" data-hero>El verde<br>tiene <em>fuego.</em></h1>
+          <p class="hero-description" data-hero>Bolones, tigrillos y los antojos de nuestra tierra. Cocina manabita hecha con verde y servida bien calientita.</p>
+          <a class="button button-fire" href="#menu" data-hero>Explorar el menú</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section container" id="menu" aria-labelledby="menu-title">
+      <div class="menu-heading">
+        <div>
+          <p class="eyebrow menu-kicker"><span></span> Nuestra carta</p>
+          <h2 id="menu-title">Sabores de <em>Manabí.</em></h2>
+        </div>
+        <fieldset class="filters" id="menu-filters">
+          <legend class="sr-only">Filtrar el menú</legend>
+          <button type="button" data-filter="todos" aria-pressed="true">Todo</button>
+          <button type="button" data-filter="bolones" aria-pressed="false">Bolones</button>
+          <button type="button" data-filter="tigrillos" aria-pressed="false">Tigrillos</button>
+          <button type="button" data-filter="antojos" aria-pressed="false">Antojos</button>
+        </fieldset>
+      </div>
+      <p id="menu-results" class="sr-only" role="status"></p>
+      <noscript><p>Activa JavaScript para consultar el menú y armar tu pedido.</p></noscript>
+      <div class="menu-grid" id="menu-grid"></div>
+      <p class="menu-note">Precios de referencia en USD.</p>
+    </section>
+
+    <section class="grill-section container" id="proximamente" aria-labelledby="grill-title">
+      <div class="grill-panel" data-reveal>
+        <div class="grill-copy">
+          <p class="eyebrow grill-kicker"><span></span> Próximamente</p>
+          <h2 id="grill-title">Asados <em>al carbón.</em></h2>
+          <p>Ya estamos encendiendo las brasas. Pronto podrás pedir cortes a la parrilla con el sabor ahumado del carbón.</p>
+        </div>
+        <div class="grill-media">
+          <img src="./assets/platos/asados.webp" alt="Carne asándose sobre brasas de carbón" width="1536" height="1024" loading="lazy" decoding="async" data-parallax>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark" aria-hidden="true"><img src="./assets/logo-verde-fuego.png" alt="" width="800" height="800" loading="lazy"></span>
+        <span class="brand-copy"><strong>Verde <span>&amp;</span> Fuego</strong><small>Sabor manabita</small></span>
+      </a>
+      <nav aria-label="Navegación al pie de página">
+        <a href="#menu">Menú</a>
+        <a href="#proximamente">Próximamente</a>
+      </nav>
+      <p>Manabí, Ecuador</p>
+    </div>
+  </footer>
+
+  <p class="sr-only" id="site-status" role="status"></p>
+
+  <dialog class="drawer" id="cart-drawer" aria-labelledby="cart-title">
+    <div class="drawer-shell" id="drawer-shell">
+      <header class="drawer-header">
+        <h2 id="cart-title" tabindex="-1">Mi pedido</h2>
+        <button class="close-button" id="close-cart" type="button" aria-label="Cerrar pedido"><span aria-hidden="true">×</span></button>
+      </header>
+      <div class="drawer-body" id="drawer-body">
+        <div class="empty-cart" id="empty-cart" hidden>
+          <span class="bag-icon" aria-hidden="true"></span>
+          <h3>Tu pedido está vacío</h3>
+          <p>Elige un plato del menú para empezar.</p>
+          <a class="button button-green" id="empty-menu-link" href="#menu">Volver al menú</a>
+        </div>
+
+        <form id="order-form" novalidate hidden>
+          <ul class="cart-items" id="cart-items" aria-label="Productos en tu pedido"></ul>
+
+          <fieldset class="fulfillment">
+            <legend>¿Cómo quieres tu pedido?</legend>
+            <div class="fulfillment-options">
+              <label><input type="radio" name="method" value="retiro" checked><span>Retiro</span></label>
+              <label><input type="radio" name="method" value="entrega"><span>Entrega</span></label>
+              <label><input type="radio" name="method" value="reserva"><span>Reserva</span></label>
+            </div>
+          </fieldset>
+          <p class="field-hint" id="method-hint"></p>
+          <div class="schedule-fields">
+            <label for="order-date">Fecha <span class="optional-schedule">(opcional)</span><input id="order-date" type="date" name="date" aria-describedby="method-hint"></label>
+            <label for="order-time">Hora <span class="optional-schedule">(opcional)</span><input id="order-time" type="time" name="time" aria-describedby="method-hint"></label>
+          </div>
+          <label class="order-field" id="address-field" for="order-address" hidden>Dirección de entrega<input id="order-address" name="address" autocomplete="street-address" maxlength="180" placeholder="Calle, número y referencia"></label>
+          <label class="order-field" for="order-notes">Notas <span>(opcional)</span><textarea id="order-notes" name="notes" rows="2" maxlength="280" placeholder="Detalles para preparar tu pedido"></textarea></label>
+        </form>
+
+        <section class="payment" id="payment" aria-labelledby="payment-title" hidden>
+          <h3 id="payment-title" tabindex="-1">Transferencia por QR</h3>
+          <p class="payment-bank">Banco Pichincha · Deuna</p>
+          <p class="payment-instructions" id="payment-instructions" aria-live="polite"></p>
+          <div class="payment-qr" id="payment-qr" hidden>
+            <img id="qr-image" alt="Código QR de cobro de Verde &amp; Fuego" width="224" height="224">
+            <a id="save-qr" class="text-link" download="verde-y-fuego-qr-pichincha.png">Guardar imagen del QR</a>
+          </div>
+          <p class="field-hint payment-attachment">Después de transferir, adjunta el comprobante de tu banco en el chat de WhatsApp.</p>
+
+          <div class="order-receipt">
+            <h4>Comprobante de pedido</h4>
+            <dl><div><dt>Referencia</dt><dd id="receipt-reference"></dd></div></dl>
+            <p class="field-hint">Pago pendiente de verificación.</p>
+            <button class="button button-outline receipt-button" id="download-receipt" type="button">Descargar comprobante (PNG)</button>
+            <p class="field-hint payment-status" id="payment-status" role="status"></p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="drawer-footer" id="drawer-footer" hidden>
+        <dl class="totals" aria-live="polite" aria-atomic="true">
+          <div><dt>Subtotal</dt><dd id="subtotal"></dd></div>
+          <div id="delivery-total-line" hidden><dt>Entrega</dt><dd id="delivery-total"></dd></div>
+          <div class="grand-total"><dt id="total-label">Total</dt><dd id="total"></dd></div>
+        </dl>
+        <button class="button button-fire checkout-button" id="checkout-button" type="submit" form="order-form">Continuar al pago</button>
+        <a class="button button-green checkout-button" id="send-order" target="_blank" rel="noopener noreferrer" hidden>Enviar comprobante por WhatsApp</a>
+      </footer>
+    </div>
+  </dialog>
+
+  <template id="product-template">
+    <article class="product-card" data-reveal>
+      <div class="product-media"><img alt="" width="512" height="512" loading="lazy" decoding="async" data-parallax></div>
+      <div class="product-content">
+        <div class="product-heading"><h3></h3><span class="product-price"></span></div>
+        <p></p>
+        <button class="add-button" type="button"><span class="plus-icon" aria-hidden="true"></span> Agregar al pedido</button>
+      </div>
+    </article>
+  </template>
+
+  <template id="cart-item-template">
+    <li class="cart-item">
+      <img class="cart-thumb" alt="" width="56" height="56">
+      <div class="cart-item-info"><h3></h3><p></p></div>
+      <div class="cart-item-actions">
+        <div class="quantity-controls">
+          <button type="button" data-action="restar">−</button><span class="item-quantity"></span><button type="button" data-action="sumar">+</button>
+        </div>
+        <button class="remove-item" type="button" data-action="eliminar">Quitar</button>
+      </div>
+    </li>
+  </template>
+</body>
+</html>
