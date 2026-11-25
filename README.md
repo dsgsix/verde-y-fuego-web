@@ -1,6 +1,13 @@
-# Verde & Fuego
+# Proyecto Restaurante Verrde y Fuego
 
 Sitio estático de cocina manabita. Abre `index.html` o inicia un servidor local con `npx --yes serve .`. El catálogo, el carrito y el comprobante funcionan en el navegador.
+
+## Estructura del sitio
+
+- `index.html` contiene la página principal y el panel de pedidos.
+- `styles.css` define el diseño adaptable del sitio.
+- `catalogo-y-pedidos.js` controla el catálogo, el carrito, el cobro y WhatsApp.
+- `assets/` contiene el logotipo y las fotografías de los platos.
 
 ## Configurar el cobro
 
